@@ -26,7 +26,9 @@ public class BST {
      * = 0 if n is null
      * = 1 + number of nodes in left + number of nodes in right */
     private int size(Node n) {
+	// Base case
 	if (n == null) {return 0;}
+
         return 1 + size(n.left) + size(n.right);
     }
 
@@ -35,10 +37,12 @@ public class BST {
     public void inOrder() {
         traversal = "";
         inOrder(root);
-    }
+    }   
     private void inOrder(Node n) {
-      	if (n == null) {return;}
-      	inOrder(n.left);
+      	// Base case
+	if (n == null) {return;}
+      	
+	inOrder(n.left);
         traversal = traversal + n.value;
 	inOrder(n.right);
     }
@@ -50,7 +54,8 @@ public class BST {
         preOrder(root);
     }
     private void preOrder(Node n) {
-        if (n == null) {return;}
+        // Base case
+	if (n == null) {return;}
 	traversal = traversal + n.value;
 	preOrder(n.left);
 	preOrder(n.right);
@@ -62,7 +67,9 @@ public class BST {
         postOrder(root);
     }
     private void postOrder(Node n) {
-        if (n == null) {return;}
+        // Base case
+	if (n == null) {return;}
+	
 	postOrder(n.left);
 	postOrder(n.right);
 	traversal = traversal + n.value;
@@ -73,13 +80,21 @@ public class BST {
      *  root. special case: an empty tree (root == null) is defined to have
      *  height = -1 */
     public int height() {
-        if (root == null) {return -1;}
-	return height(root) - 1;
+        // Special case, return -1 for null
+	if (root == null) {return -1;}
+
+	return height(root);
     }
 
-    /* return the height of the tree rooted at n */
+    /* return the height of the tree rooted at n 
+     * Recursive Definition:
+     *  height(null) = -1
+     * 	height(n) = 1 + max(height(n.left), height(n.right)
+     * */
     private int height(Node n) {
-	if (n == null) {return 0;}
+	// Base case
+	if (n == null) {return -1;}
+
         return 1 + Math.max(height(n.left), height(n.right));
     }
 
