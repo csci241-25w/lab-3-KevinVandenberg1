@@ -74,7 +74,7 @@ public class BST {
      *  height = -1 */
     public int height() {
         if (root == null) {return -1;}
-	return height(root);
+	return height(root) - 1;
     }
 
     /* return the height of the tree rooted at n */
