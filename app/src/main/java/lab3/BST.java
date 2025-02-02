@@ -39,7 +39,7 @@ public class BST {
     private void inOrder(Node n) {
       	if (n == null) {return;}
       	inOrder(n.left);
-        traversal = traversal + n.Value;
+        traversal = traversal + n.value;
 	inOrder(n.right);
     }
 
@@ -51,7 +51,7 @@ public class BST {
     }
     private void preOrder(Node n) {
         if (n == null) {return;}
-	traversal = traversal + n.Value;
+	traversal = traversal + n.value;
 	preOrder(n.left);
 	preOrder(n.right);
     }
@@ -65,7 +65,7 @@ public class BST {
         if (n == null) {return;}
 	postOrder(n.left);
 	postOrder(n.right);
-	traversal = traversal = n.Value;
+	traversal = traversal + n.value;
     }
 
     /** return the height of the tree.
